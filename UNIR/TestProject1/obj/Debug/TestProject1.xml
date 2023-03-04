@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TestProject1
+</name>
+</assembly>
+<members>
+<member name="P:TestProject1.INICIOTest.TestContext">
+	<summary>
+Obtiene o establece el contexto de la prueba que proporciona
+la información y funcionalidad para la ejecución de pruebas actual.
+</summary>
+</member><member name="M:TestProject1.INICIOTest.Login_LoadTest">
+	<summary>
+Una prueba de Login_Load
+</summary>
+</member><member name="T:TestProject1.INICIOTest">
+	<summary>
+Se trata de una clase de prueba para INICIOTest y se pretende que
+contenga todas las pruebas unitarias INICIOTest.
+</summary>
+</member>
+</members>
+</doc>

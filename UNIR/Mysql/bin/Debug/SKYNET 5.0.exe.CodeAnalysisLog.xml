@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Targets>
+  <Target Name="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql\bin\Debug\SKYNET 5.0.exe">
+   <Modules>
+    <Module Name="skynet 5.0.exe">
+     <Namespaces>
+      <Namespace Name="WindowsApplication1">
+       <Types>
+        <Type Name="Buscar" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#TextBox1_TextChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Buscar.vb" Line="107">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'Buscar.TextBox1_TextChanged(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Buscarcliente" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#TextBox1_TextChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Buscarcliente.vb" Line="17">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'Buscarcliente.TextBox1_TextChanged(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="BuscarProducto" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#TextBox1_TextChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="BuscarProducto.vb" Line="17">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'BuscarProducto.TextBox1_TextChanged(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="CANTIDADES" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#TextBox1_TextChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CANTIDADES.vb" Line="24">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'CANTIDADES.TextBox1_TextChanged(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="CIERRE_CAJA" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#actualizar_caja()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="201">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.actualizar_caja()' podría contener las siguientes variables: 'Me.Label12.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#actualizar_factura()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="225">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.actualizar_factura()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Form8_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="83">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.Form8_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label1.Text', 'Me.Label2.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="55">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.Form8_Load(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="68">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.Form8_Load(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="147">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.Form8_Load(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="100">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.Form8_Load(Object, EventArgs)' podría contener las siguientes variables: 'fechaactual1'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#insertar()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA.vb" Line="181">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA.insertar()' podría contener las siguientes variables: 'New String(15)(1)', 'New String(15)(3)', 'New String(15)(5)', 'New String(15)(7)', 'New String(15)(9)', 'New String(15)(11)', 'New String(15)(13)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="CIERRE_CAJA_AZ" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Form14_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA_AZ.vb" Line="13">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA_AZ.Form14_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA_AZ.vb" Line="64">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA_AZ.Form14_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="CIERRE_CAJA_AZ.vb" Line="30">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'CIERRE_CAJA_AZ.Form14_Load(Object, EventArgs)' podría contener las siguientes variables: 'New String(9)(1)', 'New String(9)(3)', 'New String(9)(5)', 'New String(9)(7)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="COBRAR" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BtnValidarNit_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="688">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'COBRAR.BtnValidarNit_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.TxtNit.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Form7_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="124">El objeto 'Me' admite Dispose más de una vez en el método 'COBRAR.Form7_KeyDown(Object, KeyEventArgs)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 124</Issue>
+            </Message>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="69">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.Form7_KeyDown(Object, KeyEventArgs)' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertarClientes()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="610">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.InsertarClientes()' podría contener las siguientes variables: 'New String(9)(1)', 'New String(9)(3)', 'New String(9)(5)', 'New String(9)(7)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ManejoInventarios(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="151">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'COBRAR.ManejoInventarios(Integer)' podría contener las siguientes variables: 'Conversions.ToString(Diferencia)', 'Conversions.ToString(Idprod)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="143">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'COBRAR.ManejoInventarios(Integer)' podría contener las siguientes variables: 'Conversions.ToString(noFac)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MostrarFactura()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="305">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.MostrarFactura()' podría contener las siguientes variables: 'New String(6)(1)', 'New String(6)(3)', 'New String(6)(5)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="286">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.MostrarFactura()' podría contener las siguientes variables: 'New String(7)(1)', 'New String(7)(3)', 'New String(7)(5)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ObtenerNit(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="163">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'COBRAR.ObtenerNit(Integer)' podría contener las siguientes variables: 'Conversions.ToString(Nit)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ToolStripButton4_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="541">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.ToolStripButton4_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#updatefact()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="421">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.updatefact()' podría contener las siguientes variables: 'New String(14)(1)', 'New String(14)(3)', 'New String(14)(5)', 'New String(14)(7)', 'New String(14)(9)', 'New String(14)(11)', 'New String(14)(13)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#updateventas()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="440">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.updateventas()' podría contener las siguientes variables: 'New String(7)(1)', 'New String(7)(3)', 'New String(7)(5)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdFacturaCliente()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="COBRAR.vb" Line="630">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'COBRAR.UpdFacturaCliente()' podría contener las siguientes variables: 'Conversions.ToString(Me.ObtenerNit(Conversions.ToInteger(Me.TxtNit.Text)))', 'Me.Label9.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="efectivo" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="BASE.vb" Line="105">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'efectivo.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'New String(9)(1)', 'New String(9)(3)', 'fechaactual', 'New String(9)(7)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#efectivo_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="BASE.vb" Line="39">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'efectivo.efectivo_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label7.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="BASE.vb" Line="72">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'efectivo.efectivo_Load(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="BASE.vb" Line="57">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'efectivo.efectivo_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label3.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="BASE.vb" Line="31">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'efectivo.efectivo_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label7.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="GASTOS" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="GASTOS.vb" Line="98">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'GASTOS.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'New String(7)(1)', 'Me.detalle', 'Me.efectivo'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="IMPRIMIR_AZ" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DateTimePicker1_ValueChanged(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="IMPRIMIR_AZ.vb" Line="34">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'IMPRIMIR_AZ.DateTimePicker1_ValueChanged(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="INICIO" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="INICIO.vb" Line="86">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'INICIO.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Login_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="INICIO.vb" Line="35">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'INICIO.Login_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="INICIO.vb" Line="59">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'INICIO.Login_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="INICIO.vb" Line="27">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'INICIO.Login_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="INICIO.vb" Line="54">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'INICIO.Login_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="LOGIN_AZ" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#validaruser()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_AZ.vb" Line="42">El objeto 'Me' admite Dispose más de una vez en el método 'LOGIN_AZ.validaruser()'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 42</Issue>
+            </Message>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_AZ.vb" Line="22">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'LOGIN_AZ.validaruser()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="LOGIN_BORRADO" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#borrar()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_BORRADO.vb" Line="190">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'LOGIN_BORRADO.borrar()' podría contener las siguientes variables: 'New String(23)(1)', 'New String(23)(3)', 'New String(23)(5)', 'New String(23)(7)', 'New String(23)(9)', 'New String(23)(11)', 'New String(23)(13)', 'New String(23)(15)', 'New String(23)(17)', 'New String(23)(19)', 'New String(23)(21)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Form5_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_BORRADO.vb" Line="56">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'LOGIN_BORRADO.Form5_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_BORRADO.vb" Line="39">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'LOGIN_BORRADO.Form5_Load(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ToolStripButton3_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_BORRADO.vb" Line="86">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'LOGIN_BORRADO.ToolStripButton3_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label3.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#validaruser()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_BORRADO.vb" Line="161">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'LOGIN_BORRADO.validaruser()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="LOGIN_CIERRE" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#borrar()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_CIERRE.vb" Line="58">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'LOGIN_CIERRE.borrar()' podría contener las siguientes variables: 'Me.Label4.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#validaruser()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="LOGIN_CIERRE.vb" Line="26">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'LOGIN_CIERRE.validaruser()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RawPrinterHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ClosePrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.ClosePrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.ClosePrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EndDocPrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.EndDocPrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.EndDocPrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#EndPagePrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.EndPagePrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.EndPagePrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#OpenPrinter(System.String,System.IntPtr&amp;,System.Int64)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.OpenPrinter(String, ByRef IntPtr, Long)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.OpenPrinter(String, ByRef IntPtr, Long)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#StartDocPrinter(System.IntPtr,System.Int32,WindowsApplication1.RawPrinterHelper+DOCINFOW&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.StartDocPrinter(IntPtr, Integer, ByRef RawPrinterHelper.DOCINFOW)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.StartDocPrinter(IntPtr, Integer, ByRef RawPrinterHelper.DOCINFOW)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#StartPagePrinter(System.IntPtr)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.StartPagePrinter(IntPtr)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.StartPagePrinter(IntPtr)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#WritePrinter(System.IntPtr,System.IntPtr,System.Int32,System.Int32&amp;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning">Puesto que es un método P/Invoke, se debe definir 'RawPrinterHelper.WritePrinter(IntPtr, IntPtr, Integer, ByRef Integer)' en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Issue>
+            </Message>
+            <Message TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="CriticalError">Cambie la accesibilidad del elemento P/Invoke 'RawPrinterHelper.WritePrinter(IntPtr, IntPtr, Integer, ByRef Integer)' para que no esté visible desde fuera del ensamblado.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Reimprimir" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Reimprimir.vb" Line="140">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'Reimprimir.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.Label2.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Reimprimir.vb" Line="53">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'Reimprimir.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.TextBox1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Reimprimir.vb" Line="82">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'Reimprimir.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.TextBox1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Reimprimir.vb" Line="102">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'Reimprimir.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.TextBox1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Reimprimir.vb" Line="114">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'Reimprimir.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'Me.TextBox1.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Form9_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="Reimprimir.vb" Line="18">El objeto 'Me' admite Dispose más de una vez en el método 'Reimprimir.Form9_KeyDown(Object, KeyEventArgs)'. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 18</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="VENTAS" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="439">La cadena de consulta pasada a 'MySqlCommand.CommandText.Set(String)' en 'VENTAS.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="424">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'VENTAS.Button1_Click(Object, EventArgs)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#estacompra()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="697">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'VENTAS.estacompra()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#factura()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="195">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.factura()' podría contener las siguientes variables: 'New String(7)(1)', 'New String(7)(3)', 'New String(7)(5)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#fechahora()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="850">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.fechahora()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#IngSaldos()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="350">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.IngSaldos()' podría contener las siguientes variables: 'New String(17)(1)', 'New String(17)(3)', 'New String(17)(5)', 'New String(17)(7)', 'New String(17)(9)', 'New String(17)(11)', 'New String(17)(13)', 'New String(17)(15)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="362">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.IngSaldos()' podría contener las siguientes variables: 'New String(17)(1)', 'New String(17)(3)', 'New String(17)(5)', 'New String(17)(7)', 'Strings.Replace(Me.Label5.Text, ",", ".", 1, -1, CompareMethod.Binary)', 'New String(17)(11)', 'New String(17)(13)', 'New String(17)(15)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#insertar(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="298">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.insertar(Integer)' podría contener las siguientes variables: 'Conversions.ToString(totalcant)', 'Conversions.ToString(totalPrecio)', 'Conversions.ToString(valorIva)', 'New String(10)(7)', 'Conversions.ToString(IdProd)', 'Conversions.ToString(totalcant)', 'Conversions.ToString(totalPrecio)', 'Conversions.ToString(valorU)', 'Conversions.ToString(valorIva)', 'New String(12)(9)', 'Conversions.ToString(IdProd)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="326">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.insertar(Integer)' podría contener las siguientes variables: 'Conversions.ToString(totalcant)', 'Conversions.ToString(totalPrecio)', 'New String(8)(5)', 'Conversions.ToString(IdProd)', 'Conversions.ToString(totalcant)', 'Conversions.ToString(totalPrecio)', 'Conversions.ToString(valorU)', 'New String(10)(7)', 'Conversions.ToString(IdProd)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="238">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.insertar(Integer)' podría contener las siguientes variables: 'New String(11)(1)', 'New String(11)(3)', 'New String(11)(5)', 'New String(11)(7)', 'New String(11)(9)', 'New String(8)(2)', 'New String(8)(4)', 'New String(8)(6)', 'Conversions.ToString(valorU)', 'Conversions.ToString(precio)', 'New String(8)(6)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="257">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.insertar(Integer)' podría contener las siguientes variables: 'New String(11)(1)', 'New String(11)(3)', 'New String(11)(5)', 'New String(11)(7)', 'Strings.Replace(Me.Label5.Text, ",", ".", 1, -1, CompareMethod.Binary)', 'New String(8)(2)', 'New String(8)(4)', 'New String(8)(6)', 'Conversions.ToString(valorU)', 'Conversions.ToString(precio)', 'New String(8)(6)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="208">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'VENTAS.insertar(Integer)' podría contener las siguientes variables: 'Me.Label6.Text'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="215">La cadena de consulta pasada a 'MySqlDataAdapter.New(String, MySqlConnection)' en 'VENTAS.insertar(Integer)' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#item()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="754">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.item()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#numfact()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="173">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.numfact()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#total()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="736">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.total()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#totalventas()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2016-11-05 18:46:30Z" FixCategory="DependsOnFix">
+             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="C:\Users\uno\Documents\software skynet 2016\negocios 2016\20 octubre\borrado cajero y z\4 nov\MYSQL\Mysql" File="VENTAS.vb" Line="860">La cadena de consulta pasada a 'MySqlCommand.New(String, MySqlConnection)' en 'VENTAS.totalventas()' podría contener las siguientes variables: 'New String(5)(1)', 'New String(5)(3)'. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="MovePInvokesToNativeMethodsClass" Category="Microsoft.Design" CheckId="CA1060">
+   <Name>Mueva P/Invokes a la clase NativeMethods</Name>
+   <Description>Este tipo contiene miembros con el atributo DllImport. Los miembros con el atributo DllImport deben estar contenidos en clases denominadas NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Description>
+   <Resolution Name="Default">Puesto que es un método P/Invoke, se debe definir {0} en una clase con el nombre NativeMethods, SafeNativeMethods o UnsafeNativeMethods.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182161.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="No usar Dispose varias veces en objetos" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>No usar Dispose varias veces en objetos</Name>
+   <Description>Un método Dispose correctamente implementado se puede llamar varias veces sin producir ninguna excepción. Sin embargo, esto no está garantizado y, para evitar generar una excepción System.ObjectDisposedException, no debe llamar al método Dispose más de una vez en un objeto.</Description>
+   <Resolution Name="Default">El objeto {0} admite Dispose más de una vez en el método {1}. Para evitar generar una excepción System.ObjectDisposedException, no debe llamar a Dispose más de una vez en un objeto.: Lines: 18</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="PInvokesShouldNotBeVisible" Category="Microsoft.Interoperability" CheckId="CA1401">
+   <Name>Los elementos P/Invoke no deben estar visibles</Name>
+   <Description>La capa de interoperabilidad no debe ser pública. No debe aplicar el atributo DllImport en miembros accesibles públicamente (public o protected).</Description>
+   <Resolution Name="Default">Cambie la accesibilidad del elemento P/Invoke {0} para que no esté visible desde fuera del ensamblado.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182209.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">CriticalError</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad" Category="Microsoft.Security" CheckId="CA2100">
+   <Name>Revisar consultas SQL para comprobar si tienen vulnerabilidades de seguridad</Name>
+   <Description>Una cadena de comando SQL compilada a partir de datos proporcionados por el usuario es vulnerable a ataques pon inyección de código SQL. Microsoft SQL Server y otros servidores de bases de datos admiten procedimientos almacenados y consultas SQL parametrizadas, que reducen el riesgo de ataques por inyección.</Description>
+   <Resolution Name="WithNonLiterals">La cadena de consulta pasada a {0} en {1} podría contener las siguientes variables: {2}. Si alguna de estas variables puede proceder de datos proporcionados por el usuario, considere el uso de un procedimiento almacenado o una consulta SQL parametrizada en lugar de compilar la consulta con concatenaciones de cadenas.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182310.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Categoría</String>
+  <String Key="Certainty">Certeza</String>
+  <String Key="CollapseAll">Contraer todo</String>
+  <String Key="CheckId">Comprobar id.</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">errores</String>
+  <String Key="ExpandAll">Expandir todo</String>
+  <String Key="Help">Ayuda</String>
+  <String Key="Line">Línea</String>
+  <String Key="Messages">mensajes</String>
+  <String Key="LocationNotStoredInPdb">[Ubicación no almacenada en Pdb]</String>
+  <String Key="Project">Proyecto</String>
+  <String Key="Resolution">Resolución</String>
+  <String Key="Rule">Regla</String>
+  <String Key="RuleFile">Archivo de regla</String>
+  <String Key="RuleDescription">Descripción de la regla</String>
+  <String Key="Source">Origen</String>
+  <String Key="Status">Estado</String>
+  <String Key="Target">Círculos concéntricos</String>
+  <String Key="Warning">Advertencia</String>
+  <String Key="Warnings">advertencias</String>
+  <String Key="ReportTitle">Informe de análisis del código</String>
+ </Localized>
+</FxCopReport>

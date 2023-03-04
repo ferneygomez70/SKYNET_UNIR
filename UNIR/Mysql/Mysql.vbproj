@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F8D1BC9-7450-4C84-9C21-DDF0A6F89B94}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WindowsApplication1.My.MyApplication</StartupObject>
+    <RootNamespace>WindowsApplication1</RootNamespace>
+    <AssemblyName>SKYNET 5.0</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Ing. Ferney Gómez\Desktop\proyectos\PROYECTO 02AGOTO\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://192.168.10.10//</UpdateUrl>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SKYNET 5.0.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SKYNET 5.0.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CCS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1EA8C1A305E14D7179E40C4FAF08E6D34CC36CF6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Mysql_2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>pablocons.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>SKYNET 5.0.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Mysql.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>SKYNET 5.0.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Mysql.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MoneyBox">
+      <HintPath>bin\MoneyBox.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.6.4\Assemblies\v4.0\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.6.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.6.4\Assemblies\v4.0\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buscarcliente.Designer.vb">
+      <DependentUpon>Buscarcliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscarcliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscarcliente2.designer.vb">
+      <DependentUpon>Buscarcliente2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscarcliente2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarProducto2.designer.vb">
+      <DependentUpon>BuscarProducto2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarProducto2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAMBIO2.Designer.vb">
+      <DependentUpon>CAMBIO2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CAMBIO2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CANTIDADES2.Designer.vb">
+      <DependentUpon>CANTIDADES2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CANTIDADES2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COBRAR2.designer.vb">
+      <DependentUpon>COBRAR2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="COBRAR2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crear_articulos.Designer.vb">
+      <DependentUpon>Crear_articulos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Crear_articulos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CREDITOS.Designer.vb">
+      <DependentUpon>CREDITOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CREDITOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DESCUENTO.Designer.vb">
+      <DependentUpon>DESCUENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DESCUENTO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAMBIO.Designer.vb">
+      <DependentUpon>CAMBIO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CAMBIO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="facturas.Designer.vb">
+      <DependentUpon>facturas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="facturas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GASTOS.Designer.vb">
+      <DependentUpon>GASTOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GASTOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ingreso_mp.Designer.vb">
+      <DependentUpon>ingreso_mp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ingreso_mp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INVENTARIO1.designer.vb">
+      <DependentUpon>INVENTARIO1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTARIO1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN_BORRADO2.designer.vb">
+      <DependentUpon>LOGIN_BORRADO2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN_BORRADO2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parametrizar.Designer.vb">
+      <DependentUpon>Parametrizar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Parametrizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parametros.vb" />
+    <Compile Include="REPORTE MATERIA PRIMA.Designer.vb">
+      <DependentUpon>REPORTE MATERIA PRIMA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="REPORTE MATERIA PRIMA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SALDOS2.designer.vb">
+      <DependentUpon>SALDOS2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SALDOS2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Variables.vb" />
+    <Compile Include="RawPrinterHelper.vb" />
+    <Compile Include="VENTAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VENTAS.Designer.vb">
+      <DependentUpon>VENTAS.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar.Designer.vb">
+      <DependentUpon>Buscar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CANTIDADES.Designer.vb">
+      <DependentUpon>CANTIDADES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CANTIDADES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SALDOS.Designer.vb">
+      <DependentUpon>SALDOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SALDOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMPRIMIR_AZ.Designer.vb">
+      <DependentUpon>IMPRIMIR_AZ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IMPRIMIR_AZ.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CIERRE_CAJA_AZ.Designer.vb">
+      <DependentUpon>CIERRE_CAJA_AZ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CIERRE_CAJA_AZ.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN_AZ.Designer.vb">
+      <DependentUpon>LOGIN_AZ.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN_AZ.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INICIO.Designer.vb">
+      <DependentUpon>INICIO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="INICIO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BASE.Designer.vb">
+      <DependentUpon>BASE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BASE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarProducto.Designer.vb">
+      <DependentUpon>BuscarProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN_BORRADO.Designer.vb">
+      <DependentUpon>LOGIN_BORRADO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN_BORRADO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOGIN_CIERRE.Designer.vb">
+      <DependentUpon>LOGIN_CIERRE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN_CIERRE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COBRAR.Designer.vb">
+      <DependentUpon>COBRAR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="COBRAR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CIERRE_CAJA.Designer.vb">
+      <DependentUpon>CIERRE_CAJA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CIERRE_CAJA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reimprimir.Designer.vb">
+      <DependentUpon>Reimprimir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reimprimir.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="VENTAS2.designer.vb">
+      <DependentUpon>VENTAS2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VENTAS2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Buscarcliente.resx">
+      <DependentUpon>Buscarcliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscarcliente2.resx">
+      <DependentUpon>Buscarcliente2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarProducto2.resx">
+      <DependentUpon>BuscarProducto2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAMBIO2.resx">
+      <DependentUpon>CAMBIO2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTIDADES2.resx">
+      <DependentUpon>CANTIDADES2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COBRAR2.resx">
+      <DependentUpon>COBRAR2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crear_articulos.resx">
+      <DependentUpon>Crear_articulos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CREDITOS.resx">
+      <DependentUpon>CREDITOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DESCUENTO.resx">
+      <DependentUpon>DESCUENTO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAMBIO.resx">
+      <DependentUpon>CAMBIO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="facturas.resx">
+      <DependentUpon>facturas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GASTOS.resx">
+      <DependentUpon>GASTOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ingreso_mp.resx">
+      <DependentUpon>ingreso_mp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INVENTARIO1.resx">
+      <DependentUpon>INVENTARIO1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN_BORRADO2.resx">
+      <DependentUpon>LOGIN_BORRADO2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parametrizar.resx">
+      <DependentUpon>Parametrizar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTE MATERIA PRIMA.resx">
+      <DependentUpon>REPORTE MATERIA PRIMA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SALDOS2.resx">
+      <DependentUpon>SALDOS2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VENTAS.resx">
+      <DependentUpon>VENTAS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar.resx">
+      <DependentUpon>Buscar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTIDADES.resx">
+      <DependentUpon>CANTIDADES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SALDOS.resx">
+      <DependentUpon>SALDOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMPRIMIR_AZ.resx">
+      <DependentUpon>IMPRIMIR_AZ.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CIERRE_CAJA_AZ.resx">
+      <DependentUpon>CIERRE_CAJA_AZ.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN_AZ.resx">
+      <DependentUpon>LOGIN_AZ.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INICIO.resx">
+      <DependentUpon>INICIO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BASE.resx">
+      <DependentUpon>BASE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarProducto.resx">
+      <DependentUpon>BuscarProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN_BORRADO.resx">
+      <DependentUpon>LOGIN_BORRADO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOGIN_CIERRE.resx">
+      <DependentUpon>LOGIN_CIERRE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COBRAR.resx">
+      <DependentUpon>COBRAR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CIERRE_CAJA.resx">
+      <DependentUpon>CIERRE_CAJA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reimprimir.resx">
+      <DependentUpon>Reimprimir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VENTAS2.resx">
+      <DependentUpon>VENTAS2.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CCS.ico" />
+    <None Include="Resources\PAGOS.jpg" />
+    <None Include="Resources\perros.jpg" />
+    <None Include="pablocons.pfx" />
+    <None Include="Resources\boton exit.bmp" />
+    <None Include="Resources\boton exit1.bmp" />
+    <None Include="Resources\ALFIPLAST.png" />
+    <None Include="Resources\boton_inicio.png" />
+    <None Include="Resources\btnsalir.png" />
+    <None Include="Resources\Boton_entrar.gif" />
+    <Content Include="Resources\CANTIDADES.gif" />
+    <Content Include="Resources\COBRAR.jpg" />
+    <None Include="Resources\icono.ico" />
+    <None Include="Resources\logo animal planet.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\LOGO SKYNET.jpg" />
+    <None Include="Resources\LOGOSKYNET.png" />
+    <None Include="Resources\entrar-boton.png" />
+    <None Include="Resources\ingresar.png" />
+    <None Include="Resources\flechas.jpg" />
+    <None Include="Resources\FOLDERS.png" />
+    <Content Include="Resources\LOGO-CAFY.gif" />
+    <Content Include="Resources\logoskynet1.png" />
+    <None Include="Resources\Logo_UNIR.png" />
+    <Content Include="Resources\manz.ico" />
+    <None Include="Resources\ventasd.jpg" />
+    <None Include="Resources\ventas.jpg" />
+    <None Include="Resources\venta.jpg" />
+    <None Include="Resources\varios.jpg" />
+    <None Include="Resources\usuarios.jpg" />
+    <None Include="Resources\salir.jpg" />
+    <None Include="Resources\reportes.jpg" />
+    <None Include="Resources\red.jpg" />
+    <None Include="Resources\pera.jpg" />
+    <None Include="Resources\oferta.jpg" />
+    <None Include="Resources\mil.jpg" />
+    <None Include="Resources\manzana.jpg" />
+    <None Include="Resources\imprimir.jpg" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\icono.jpg" />
+    <None Include="Resources\galaxia.jpg" />
+    <None Include="Resources\frutas.jpg" />
+    <None Include="Resources\frut.bmp" />
+    <None Include="Resources\fondo fruta.bmp" />
+    <None Include="Resources\devoluciones.jpg" />
+    <None Include="Resources\consultar.jpg" />
+    <None Include="Resources\cierre de ventas.jpg" />
+    <None Include="Resources\cerezas-10.gif" />
+    <None Include="Resources\cereza.jpg" />
+    <None Include="Resources\cambio precios.jpg" />
+    <None Include="Resources\borrar.jpg" />
+    <None Include="Resources\User.png" />
+    <None Include="Resources\frutas_verduras.png" />
+    <None Include="Resources\frutas-y-verduras1.png" />
+    <None Include="Resources\verduras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

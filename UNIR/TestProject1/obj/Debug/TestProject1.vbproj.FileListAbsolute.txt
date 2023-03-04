@@ -1,0 +1,12 @@
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\TestProject1.dll
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\TestProject1.pdb
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\TestProject1.xml
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\Mysql.exe
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\Mysql.pdb
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\Mysql.xml
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\Mysql_Accessor.exe
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\bin\Debug\Mysql_Accessor.pdb
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\obj\Debug\TestProject1.vbprojResolveAssemblyReference.cache
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\obj\Debug\TestProject1.dll
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\obj\Debug\TestProject1.xml
+C:\Users\Ing. Ferney Gómez\Desktop\escritorio  3 sept 2014\pedro\7 diciembre\MYSQL\TestProject1\obj\Debug\TestProject1.pdb

@@ -1,0 +1,8 @@
+Private Sub DataGridView1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyDown
+ Dim oForm2 As Form2
+ 
+If e.KeyCode = Keys.Enter Then
+ oForm2 = New Form2()
+ oForm2.Show()
+ End If
+ End Sub

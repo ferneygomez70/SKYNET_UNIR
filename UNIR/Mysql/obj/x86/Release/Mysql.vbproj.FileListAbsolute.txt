@@ -1,0 +1,121 @@
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.exe.config
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.exe.manifest
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.application
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.exe
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.pdb
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.xml
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form1.resources
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Resources.resources
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.TrustInfo.xml
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.exe.manifest
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.application
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.exe
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.xml
+C:\Users\GBS\documents\visual studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.pdb
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.exe.config
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.exe.manifest
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.application
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.exe
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.pdb
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\bin\Release\Mysql.xml
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form1.resources
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.login.resources
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.efectivo.resources
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Resources.resources
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.TrustInfo.xml
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.exe.manifest
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.application
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.exe
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.xml
+C:\Users\CB-SIS05\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\Mysql.pdb
+C:\Users\GBS\Downloads\Mysql\Mysql\bin\Release\Mysql.exe.config
+C:\Users\GBS\Downloads\Mysql\Mysql\bin\Release\Mysql.exe.manifest
+C:\Users\GBS\Downloads\Mysql\Mysql\bin\Release\Mysql.application
+C:\Users\GBS\Downloads\Mysql\Mysql\bin\Release\Mysql.exe
+C:\Users\GBS\Downloads\Mysql\Mysql\bin\Release\Mysql.pdb
+C:\Users\GBS\Downloads\Mysql\Mysql\bin\Release\Mysql.xml
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form1.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Login.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.efectivo.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form4.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form5.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form6.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form7.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Resources.resources
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\Mysql.TrustInfo.xml
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\Mysql.exe.manifest
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\Mysql.application
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\Mysql.exe
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\Mysql.xml
+C:\Users\GBS\Downloads\Mysql\Mysql\obj\x86\Release\Mysql.pdb
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Login.resources
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.efectivo.resources
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form4.resources
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form5.resources
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form6.resources
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form7.resources
+C:\Users\GBS\Documents\Visual Studio 2010\Projects\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form8.resources
+D:\PROYECTO\Mysql\Mysql\bin\Release\Mysql.exe.config
+D:\PROYECTO\Mysql\Mysql\bin\Release\Mysql.exe.manifest
+D:\PROYECTO\Mysql\Mysql\bin\Release\Mysql.application
+D:\PROYECTO\Mysql\Mysql\bin\Release\Mysql.exe
+D:\PROYECTO\Mysql\Mysql\bin\Release\Mysql.pdb
+D:\PROYECTO\Mysql\Mysql\bin\Release\Mysql.xml
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\ResolveAssemblyReference.cache
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form1.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form10.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form11.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Login.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.efectivo.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form4.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form5.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form6.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form7.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form8.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form9.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Resources.resources
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\GenerateResource.read.1.tlog
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\GenerateResource.write.1.tlog
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\Mysql.TrustInfo.xml
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\Mysql.exe.manifest
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\Mysql.application
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\Mysql.exe
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\Mysql.xml
+D:\PROYECTO\Mysql\Mysql\obj\x86\Release\Mysql.pdb
+D:\Mysql\Mysql\bin\Release\Mysql.exe.config
+D:\Mysql\Mysql\bin\Release\Mysql.exe.manifest
+D:\Mysql\Mysql\bin\Release\Mysql.application
+D:\Mysql\Mysql\bin\Release\Mysql.exe
+D:\Mysql\Mysql\bin\Release\Mysql.pdb
+D:\Mysql\Mysql\bin\Release\Mysql.xml
+D:\Mysql\Mysql\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form1.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form10.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form11.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form12.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Login.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.efectivo.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form4.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form5.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form6.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form7.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form8.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Form9.resources
+D:\Mysql\Mysql\obj\x86\Release\WindowsApplication1.Resources.resources
+D:\Mysql\Mysql\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Mysql\Mysql\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Mysql\Mysql\obj\x86\Release\Mysql.TrustInfo.xml
+D:\Mysql\Mysql\obj\x86\Release\Mysql.exe.manifest
+D:\Mysql\Mysql\obj\x86\Release\Mysql.application
+D:\Mysql\Mysql\obj\x86\Release\Mysql.exe
+D:\Mysql\Mysql\obj\x86\Release\Mysql.xml
+D:\Mysql\Mysql\obj\x86\Release\Mysql.pdb

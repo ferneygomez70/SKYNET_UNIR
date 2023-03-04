@@ -1,0 +1,1386 @@
+﻿Imports MySql.Data.MySqlClient
+Imports MySql.Data
+Imports System.Configuration
+Imports System.Diagnostics
+Imports System.IO
+Imports System.Drawing.Printing
+Imports System.Runtime.InteropServices
+Public Class COBRAR
+
+    Dim cadena As String = ConfigurationManager.ConnectionStrings("cadenaMysql").ToString
+    Dim varconex, varconex1, conexion As New MySqlConnection(cadena)
+    Dim RawPrinterHelper As Object
+    Dim strCurrency As String = ""
+    Dim acceptableKey As Boolean = False
+    Private _titulo As Object
+    Dim f_efectivo As String
+
+
+
+
+    Private Sub Form7_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+
+
+        If e.KeyCode = Keys.Enter Then
+            ToolStripButton4.PerformClick()
+        End If
+
+        If e.KeyCode = Keys.F10 Then
+            VENTAS.TextBox1.Focus()
+            VENTAS.Label1.Text = Label14.Text
+            VENTAS.Label16.Text = Label15.Text
+            VENTAS.Label9.Text = Label3.Text
+            VENTAS.Label12.Text = Label4.Text
+            VENTAS.Label22.Text = Label9.Text
+            VENTAS.TextBox1.Enabled = True
+            VENTAS.BtnIngresar.Enabled = True
+            VENTAS.Button3.Enabled = True
+            VENTAS.DataGridView1.Enabled = True
+            VENTAS.TextBox1.Focus()
+            VENTAS.Show()
+            Close()
+        End If
+
+        If e.KeyCode = Keys.F5 Then
+            If TxtNit.Text = "" Then
+                MsgBox("Debe Ingresar el Nit", MsgBoxStyle.Critical, "Validar Nit")
+                TxtNit.Focus()
+                Exit Sub
+            ElseIf TxtCliente.Text = "" Then
+                MsgBox("Debe Ingresar el Cliente", MsgBoxStyle.Critical, "Validar Nit")
+                TxtCliente.Focus()
+                Exit Sub
+            ElseIf TxtDireccion.Text = "" Then
+                MsgBox("Debe Ingresar la dirección", MsgBoxStyle.Critical, "Validar Nit")
+                TxtDireccion.Focus()
+                Exit Sub
+            ElseIf TxtTelefono.Text = "" Then
+                MsgBox("Debe Ingresar el Telefono", MsgBoxStyle.Critical, "Validar Nit")
+                TxtTelefono.Focus()
+                Exit Sub
+            End If
+            If TextBox1.Text = "" Then
+                MsgBox("Ingrese cantidad de efectivo", vbExclamation, "Atención      SKYNET")
+
+            Else
+                If Label2.Text = 0 Then
+                    MsgBox("NO HAY articulos", vbExclamation, "Atención      SKYNET")
+                Else
+                    'cajon()
+                    Call updatefact()
+
+
+                    Call updateventas()
+                    Call MostrarFactura()
+                    Call UpdFacturaCliente()
+
+                    Call Manejomateriaprima()
+                    'sistema puntos
+                    If VariablesGoblales.SistemaPuntos = True Then
+                        Call calculo_puntos()
+                        Call ingreso_puntos()
+                    End If
+
+
+                    ListBox1.Items.Add(("  EFECTIVO: $") & (Me.TextBox1.Text))
+                    ListBox1.Items.Add(("  CAMBIO: $") & (Me.Label7.Text))
+                    CAMBIO.Label5.Text = Label7.Text
+                    CAMBIO.Label3.Text = TextBox1.Text
+                    CAMBIO.Label2.Text = Label2.Text
+                    ListBox1.Items.Add("  __________________")
+                    Dim cmdpos As New MySqlCommand("SELECT pos.nomb_caja FROM pos where pos.id_caja= " & Me.Label4.Text & "", conexion)
+                    Dim lecturacaja As MySqlDataReader
+
+                    If Not conexion Is Nothing Then conexion.Close()
+                    conexion.Open()
+                    lecturacaja = cmdpos.ExecuteReader
+
+                    If lecturacaja.Read() Then
+
+                        ListBox1.Items.Add(("  ") & lecturacaja("nomb_caja"))
+
+                    End If
+
+                    conexion.Close()
+                    ListBox1.Items.Add(("  CAJERO:") & Chr(9) & (Me.Label14.Text))
+
+                    Dim cmdempresa2 As New MySqlCommand("SELECT empresa.empresa,empresa.nit,empresa.direccion,empresa.telefono,empresa.ciudad,empresa.observacion FROM empresa ", conexion)
+                    Dim lecturaempresa2 As MySqlDataReader
+
+                    If Not conexion Is Nothing Then conexion.Close()
+                    conexion.Open()
+                    lecturaempresa2 = cmdempresa2.ExecuteReader
+
+                    If lecturaempresa2.Read() Then
+                        ListBox1.Items.Add(("") & lecturaempresa2("direccion"))
+                        ListBox1.Items.Add(("TELEFONO:") & lecturaempresa2("telefono"))
+                        ListBox1.Items.Add(("") & lecturaempresa2("ciudad"))
+                        ListBox1.Items.Add(("") & lecturaempresa2("observacion") & (""))
+                        ListBox1.Items.Add("")
+                        'ListBox1.Items.Add("  ******************")
+                        'ListBox1.Items.Add("     DOMICILIO GRATIS: " & lecturaempresa2("telefono"))
+                        ' ListBox1.Items.Add("  *********************************")
+                    End If
+                    Dim valor As Integer
+                    valor = MsgBox("Desea Imprimir la Factura?", vbYesNo, "Factura")
+
+
+                    If valor = 6 Then
+                        PrintDocument1.Print()
+                    Else
+                        cajon()
+                    End If
+                    Call ManejoInventarios(VariablesGoblales.NoFact)
+                    VENTAS.Label1.Text = Label14.Text
+                    VENTAS.Label16.Text = Label15.Text
+                    VENTAS.Label9.Text = Label3.Text
+                    VENTAS.Label12.Text = Label4.Text
+                    VENTAS.TextBox1.Enabled = False
+                    VENTAS.BtnIngresar.Enabled = False
+                    VENTAS.Button3.Enabled = False
+                    VENTAS.DataGridView1.DataSource = Nothing
+                    VENTAS.total_venta.Text = Nothing
+                    VENTAS.Label7.Text = Nothing
+                    VENTAS.Label8.Text = Nothing
+                    VENTAS.Label20.Text = Nothing
+
+                    VENTAS.Label30.Text = 0
+                    Me.Close()
+                    conexion.Close()
+                    CAMBIO.Show()
+
+                    'VENTAS.Show()
+                End If
+            End If
+        End If
+    End Sub
+
+    ' SISTEMA PUNTOS
+    Private Sub ingreso_puntos()
+
+        Dim Query As String
+        Try
+            If varconex.State = ConnectionState.Open Then varconex.Close()
+
+            Query = "update clientes Set clientes.puntos=" & Lbl_puntos.Text & " where Nit=" & TxtNit.Text & ""
+            varconex.Open()
+            Dim cmd2 As MySqlCommand = New MySqlCommand(Query, varconex)
+            cmd2.ExecuteNonQuery()
+
+            varconex.Close()
+
+
+        Catch ex As Exception
+            MsgBox("fallo de actualización ingreso puntos", vbExclamation, "Atención      SKYNET")
+
+
+        End Try
+
+    End Sub
+    Sub ManejoInventarios(ByVal noFac As Integer)
+        Dim Idprod, Diferencia As Integer
+        Dim UpdSQL As String = ""
+        Dim Inventario As String = "Select Id_Venta, Id_Fact, VENTAS.id_Product, cant, Peso, IFNULL(INVENTARIO, 0) As inventario, " &
+                                   "CASE WHEN Id_Medida =1 THEN " &
+                                   "IFNULL(inventario, 0) - peso " &
+                                   "Else IFNULL(inventario,0) - cant " &
+                                   "End As Diferencia " &
+                                   "FROM VENTAS LEFT JOIN Articulos " &
+                                   "On Ventas.id_Product = Articulos.id_Product " &
+                                   "WHERE Ventas.Id_Product Not In ('S01') AND Id_Fact = " & noFac
+        If varconex.State = ConnectionState.Closed Then varconex.Open()
+        Dim Adapter As New MySqlDataAdapter(Inventario, varconex)
+        Dim ds As New DataSet
+        Adapter.Fill(ds)
+        For Each row As DataRow In ds.Tables(0).Rows
+            Idprod = row("Id_Product")
+            Diferencia = row("Diferencia")
+            UpdSQL = UpdSQL & "UPDATE Articulos SET inventario=" & Diferencia & " WHERE Id_Product=" & Idprod & ";"
+            If varconex.State = ConnectionState.Closed Then varconex.Open()
+            Dim ActInventario As New MySqlDataAdapter(UpdSQL, varconex)
+            Dim dts As New DataSet
+            ActInventario.Fill(dts)
+        Next row
+        varconex.Close()
+        'Actualiza el campo cantidad en la tabla articulos
+
+    End Sub
+    Function ObtenerNit(ByVal Nit As Integer) As Integer
+        Dim CodCliente As Integer
+        Dim Query As String = "Select Id_Cliente From Clientes Where Nit LIKE " & Nit
+        If varconex.State = ConnectionState.Closed Then varconex.Open()
+        Dim Adapter As New MySqlDataAdapter(Query, varconex)
+        Dim ds As New DataSet
+        Adapter.Fill(ds)
+        If ds.Tables(0).Rows.Count = 0 Then
+            CodCliente = 0
+        Else
+            For Each row As DataRow In ds.Tables(0).Rows
+                CodCliente = CInt(row("Id_Cliente"))
+            Next row
+        End If
+        varconex.Close()
+        Return CodCliente
+    End Function
+    Private Sub Form7_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Parametrizar.ObtenerParametros()
+        'sistema de credito
+        If VariablesGoblales.Creditos = True Then
+            CheckBox1.Visible = True
+        Else
+            CheckBox1.Visible = False
+
+        End If
+        'sistema de puntos
+        If VariablesGoblales.SistemaPuntos = True Then
+            Label25.Visible = True
+            Label26.Visible = True
+            TextBox2.Visible = True
+            TextBox3.Visible = True
+        Else
+            Label25.Visible = False
+            Label26.Visible = False
+            TextBox2.Visible = False
+            TextBox3.Visible = False
+
+        End If
+
+        If TxtNit.Text = "" Or TxtCliente.Text = "" Or TxtDireccion.Text = "" Or TxtTelefono.Text = "" Then
+            ToolStripButton4.Enabled = False
+        Else
+            ToolStripButton4.Enabled = True
+        End If
+
+        Dim fechaactual As String = Date.Now.ToString("yyyy/MM/dd HH:mm:ss")
+
+        Label8.Text = fechaactual
+
+
+
+    End Sub
+
+    Sub MostrarFactura()
+        Dim fechaactual As String = Date.Now.ToString("yyyy/MM/dd HH:mm:ss")
+
+        'sistema puntos
+        If VariablesGoblales.SistemaPuntos = True Then
+            Call calculo_puntos()
+            Call ingreso_puntos()
+        End If
+
+
+        Label8.Text = fechaactual
+
+        Dim cmdempresa As New MySqlCommand("SELECT empresa.empresa,empresa.nit,empresa.direccion,empresa.ciudad,empresa.telefono,empresa.regimen FROM empresa ", conexion)
+        Dim lecturaempresa As MySqlDataReader
+        If Not conexion Is Nothing Then conexion.Close()
+        conexion.Open()
+        lecturaempresa = cmdempresa.ExecuteReader
+
+        If lecturaempresa.Read() Then
+
+            ListBox1.Items.Add(lecturaempresa("empresa"))
+            ListBox1.Items.Add(("NIT:") & lecturaempresa("nit"))
+            ListBox1.Items.Add(("REGIMEN:") & lecturaempresa("regimen"))
+
+        End If
+        ListBox1.Items.Add("*************************")
+        conexion.Close()
+        ListBox1.Items.Add(("FACTURA DE VENTA N°.") & (Me.Label9.Text))
+        ListBox1.Items.Add(Me.Label8.Text)
+        ListBox1.Items.Add("<<<<<<<<<<<<<<>>>>>>>>>>>>")
+        ListBox1.Items.Add(("CLIENTE: ") & (Me.TxtCliente.Text))
+        ListBox1.Items.Add(("NIT: ") & (Me.TxtNit.Text))
+        ListBox1.Items.Add(("DIRECCIÓN: ") & (Me.TxtDireccion.Text))
+        ListBox1.Items.Add(("TELEFONO: ") & (Me.TxtTelefono.Text))
+        'SISTEMA PUNTOS
+        If VariablesGoblales.SistemaPuntos = True Then
+            ListBox1.Items.Add(("PUNTOS ESTA COMPRA: ") & (Me.Lbl_puntos_estaventa.Text))
+            ListBox1.Items.Add(("PUNTOS ACUMULADOS: ") & (Me.Lbl_puntos.Text))
+        End If
+
+
+        ListBox1.Items.Add("<<<<<<<<<<<<<<>>>>>>>>>>>>")
+
+        ListBox1.Items.Add("MED|  ARTICULO   |PRECIO|CANT|SUBT.")
+        ListBox1.Items.Add("_____________________________________")
+        Dim cmdventas As New MySqlCommand("SELECT ventas.id_venta, articulos.nomb_product,ventas.valor_unitario,medida.medida,(ventas.peso+''+ventas.cant) as cant,ventas.precio FROM ventas INNER JOIN usuarios ON (ventas.id_usuarios = usuarios.id_usuarios) INNER JOIN pos ON (ventas.id_caja = pos.id_caja) INNER JOIN articulos ON (ventas.id_product = articulos.id_product) INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE  usuarios.id_usuarios=" & Me.Label3.Text & " AND pos.id_caja= " & Me.Label4.Text & " AND Id_fact=" & Label9.Text & " order by articulos.nomb_product ", conexion)
+        Dim lecturaventas As MySqlDataReader
+        Dim BASE As Decimal
+        If Not conexion Is Nothing Then conexion.Close()
+        conexion.Open()
+        lecturaventas = cmdventas.ExecuteReader
+
+        While lecturaventas.Read()
+            Dim item1 As New ListViewItem("item1", 0)
+            item1.SubItems.Add("1")
+            ListBox1.Items.Add([String].Format("{0,-4}|{1,-12}|{2,-6}|{3,-4}|{4,5}", lecturaventas("medida"), Mid(lecturaventas("nomb_product"), 1, 12), lecturaventas("valor_unitario"), lecturaventas("cant"), lecturaventas("precio")))
+
+
+        End While
+        ListBox1.Items.Add("------------------------------")
+        'julio
+        conexion.Close()
+
+        ' cambiar como se calcula el iva
+        '
+        '
+        '< 
+        '
+        '
+        '
+        '
+
+
+        Dim cmdiva As New MySqlCommand("SELECT SUM(`ventas`.`valor_iva`) as iva FROM ventas INNER JOIN usuarios ON (ventas.id_usuarios = usuarios.id_usuarios) INNER JOIN pos ON (ventas.id_caja = pos.id_caja) INNER JOIN articulos ON (ventas.id_product = articulos.id_product) INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE usuarios.id_usuarios=" & Me.Label3.Text & " AND pos.id_caja= " & Me.Label4.Text & " AND Id_fact=" & Label9.Text, conexion)
+        Dim lecturaiva As MySqlDataReader
+
+        If Not conexion Is Nothing Then conexion.Close()
+        conexion.Open()
+        lecturaiva = cmdiva.ExecuteReader
+
+        If lecturaiva.Read() Then
+            BASE = Me.Label2.Text - lecturaiva("iva")
+            ListBox1.Items.Add(("BASE: $ ") & FormatNumber(BASE, 0))
+            ListBox1.Items.Add(("IVA: $ ") & lecturaiva("iva"))
+
+        End If
+
+        conexion.Close()
+
+        conexion.Close()
+        ListBox1.Items.Add("______________________________")
+    End Sub
+    Private Sub calculo_puntos()
+        Dim venta_puntos As Integer
+        Dim puntos_totales As Integer
+        venta_puntos = Math.Truncate(Label12.Text / 1000) - TextBox3.Text
+        Lbl_puntos_estaventa.Text = venta_puntos
+        puntos_totales = Val(Lbl_puntos_estaventa.Text) + Val(TextBox2.Text)
+        Lbl_puntos.Text = puntos_totales
+
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(ByVal sender As System.Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+
+        Dim fnt As New Font("Courier New", 6.5, FontStyle.Bold, GraphicsUnit.Point)
+
+        Dim ListBoxItem As String = String.Empty
+
+        For Each LBItem As String In ListBox1.Items
+
+            ListBoxItem = ListBoxItem & vbCrLf & LBItem
+        Next
+        ListBoxItem = ListBoxItem.Substring(vbCrLf.Length)
+        e.Graphics.DrawString(ListBoxItem, fnt, Brushes.Black, 0, 0)
+        e.HasMorePages = False
+
+
+    End Sub
+    Public Function Puntos(ByVal strValor As String, Optional ByVal intNumDecimales As Integer = 0) As String
+
+        Dim strAux As String
+        Dim strComas As String
+        Dim strPuntos As String
+        Dim intX As Integer
+        Dim bolMenos As Boolean = False
+
+        strComas = ""
+        strValor = strValor.Replace(".", "")
+        If InStr(strValor, ",") > 0 Then
+            strAux = Mid(strValor, 1, InStr(strValor, ",") - 1)
+            strComas = Mid(strValor, InStr(strValor, ","))
+        Else
+            strAux = strValor
+        End If
+
+        If Mid(strAux, 1, 1) = "-" Then
+            bolMenos = True
+            strAux = Mid(strAux, 2)
+        End If
+
+        strPuntos = strAux
+        strAux = ""
+        While strPuntos.Length > 3
+            strAux = "." & Mid(strPuntos, strPuntos.Length - 2, 3) & strAux
+            strPuntos = Mid(strPuntos, 1, strPuntos.Length - 3)
+        End While
+        If intNumDecimales <> 0 Then
+            If strComas = "" Then strComas = ","
+            For intX = Len(strComas) - 1 To intNumDecimales - 1
+                strComas = strComas & "0"
+            Next
+
+        End If
+        strAux = strPuntos & strAux & strComas
+        If Mid(strAux, 1, 1) = "." Then strAux = Mid(strAux, 2)
+        If bolMenos Then strAux = "-" & strAux
+
+        Return strAux
+    End Function
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+
+        'TextBox1.Text = Puntos(TextBox1.Text)
+        TextBox1.Select(TextBox1.Text.Length, 0)
+        Try
+            Dim cambio As Long
+
+            cambio = (TextBox1.Text - Label2.Text)
+
+            Me.Label7.Text = cambio
+
+
+        Catch ex As Exception
+            Me.Label7.Text = 0
+        End Try
+
+    End Sub
+    Private Sub TextBox2_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub TextBox4_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+    Public Sub updatefact()
+        Dim Query As String
+
+        If CheckBox1.Checked = True Then
+            Label28.Text = 1
+            Try
+                If varconex.State = ConnectionState.Open Then varconex.Close()
+
+                Query = "update facturas set activo= 2, fecha_fact='" & Label8.Text & "', total_fact=0, total_fact_credito=" & Label12.Text & ",efectivo=" & TextBox1.Text & ",cambio =" & Label7.Text & ",descuento=" & Label27.Text & ", credito=" & Label28.Text & " where id_fact=" & Label9.Text & " and id_caja =" & Label4.Text & " and id_usuarios=" & Label3.Text & ""
+                varconex.Open()
+                Dim cmd2 As MySqlCommand = New MySqlCommand(Query, varconex)
+                cmd2.ExecuteNonQuery()
+
+                varconex.Close()
+
+
+            Catch ex As Exception
+                MsgBox("fallo de actualización", vbExclamation, "Atención      SKYNET")
+
+
+            End Try
+        Else
+            Label28.Text = 0
+            Try
+                If varconex.State = ConnectionState.Open Then varconex.Close()
+
+                Query = "update facturas set activo= 2, fecha_fact='" & Label8.Text & "', total_fact=" & Label12.Text & ",efectivo=" & TextBox1.Text & ",cambio =" & Label7.Text & ",descuento=" & Label27.Text & ", credito=" & Label28.Text & " where id_fact=" & Label9.Text & " and id_caja =" & Label4.Text & " and id_usuarios=" & Label3.Text & ""
+                varconex.Open()
+                Dim cmd2 As MySqlCommand = New MySqlCommand(Query, varconex)
+                cmd2.ExecuteNonQuery()
+
+                varconex.Close()
+
+
+            Catch ex As Exception
+                MsgBox("fallo de actualización Facturas", vbExclamation, "Atención      SKYNET")
+
+
+            End Try
+        End If
+
+    End Sub
+    Public Sub updateventas()
+        Dim update As String
+        Try
+
+            If varconex.State = ConnectionState.Open Then varconex.Close()
+            update = "update ventas set activo= 2 where id_fact=" & Label9.Text & " and id_caja =" & Label4.Text & " and id_usuarios=" & Label3.Text & " and activo=1 "
+            varconex.Open()
+            Dim cmd3 As MySqlCommand = New MySqlCommand(update, varconex)
+            cmd3.ExecuteNonQuery()
+
+            varconex.Close()
+
+
+        Catch ex As Exception
+
+            MsgBox("Fallo de actualización Ventas", vbExclamation, "Atención      SKYNET")
+
+
+
+        End Try
+    End Sub
+
+    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
+        VENTAS.TextBox1.Focus()
+        VENTAS.Label1.Text = Label14.Text
+        VENTAS.Label16.Text = Label15.Text
+        VENTAS.Label9.Text = Label3.Text
+        VENTAS.Label12.Text = Label4.Text
+        VENTAS.Label22.Text = Label9.Text
+        VENTAS.TextBox1.Enabled = True
+        VENTAS.BtnIngresar.Enabled = True
+        VENTAS.Button3.Enabled = True
+        VENTAS.DataGridView1.Enabled = True
+
+        VENTAS.Show()
+        Close()
+    End Sub
+
+    Private Sub cajon()
+
+        'FileOpen(1, AppDomain.CurrentDomain.BaseDirectory & "open.txt", OpenMode.Output)
+        'PrintLine(1, Chr(27) & Chr(110) & Chr(0) & Chr(25) & Chr(250))
+        'FileClose(1)
+        'Shell("print /d:USB1 open.txt", AppWinStyle.Hide)
+        'srp 280 secuencias de escape 27,112,0,64,240
+        Dim pd As New PrintDialog()
+        Dim Impresora As New System.Drawing.Printing.PrinterSettings
+        pd.PrinterSettings = New PrinterSettings()
+
+        'If (pd.ShowDialog() = DialogResult.OK) Then
+        WindowsApplication1.RawPrinterHelper.SendStringToPrinter(Impresora.PrinterName, Chr(27) & Chr(112) & Chr(0) & Chr(25) & Chr(250))
+        'End If
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
+    Private Sub ToolStrip1_ItemClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles ToolStrip1.ItemClicked
+
+    End Sub
+
+
+    Private Sub Label8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub Label14_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label14.Click
+
+    End Sub
+
+
+    Sub InsertarClientes()
+        If ObtenerNit(TxtNit.Text) = 0 Then
+            Dim Query As String
+            Try
+                If varconex.State = ConnectionState.Open Then varconex.Close()
+                Query = "Insert Into Clientes (Nombres,Nit,Direccion,Telefono) Values ('" & TxtCliente.Text & "', " & TxtNit.Text & ",'" & TxtDireccion.Text & "','" & TxtTelefono.Text & "');"
+                varconex.Open()
+                Dim cmd2 As MySqlCommand = New MySqlCommand(Query, varconex)
+                cmd2.ExecuteNonQuery()
+                varconex.Close()
+                If TxtNit.Text = "" Or TxtCliente.Text = "" Or TxtDireccion.Text = "" Or TxtTelefono.Text = "" Then
+                    ToolStripButton4.Enabled = False
+                Else
+                    ToolStripButton4.Enabled = True
+                End If
+
+            Catch ex As Exception
+                MsgBox("fallo en el ingreso del cliente", vbExclamation, "Atención      SKYNET")
+            End Try
+        End If
+    End Sub
+    Sub MOSTRAR_CAMBIO()
+        Dim Query As String
+        Try
+            If varconex.State = ConnectionState.Open Then varconex.Close()
+            Query = "Update Facturas SET Id_Cliente=" & ObtenerNit(TxtNit.Text) & " WHERE Id_Fact=" & Label9.Text
+            varconex.Open()
+            Dim cmd2 As MySqlCommand = New MySqlCommand(Query, varconex)
+            cmd2.ExecuteNonQuery()
+
+            varconex.Close()
+
+        Catch ex As Exception
+            MsgBox("fallo la actualizacion Id_cliente Factura", vbExclamation, "Atención      SKYNET")
+        End Try
+    End Sub
+
+
+
+    Sub UpdFacturaCliente()
+        Dim Query As String
+        Try
+            If varconex.State = ConnectionState.Open Then varconex.Close()
+            Query = "Update Facturas SET Id_Cliente=" & ObtenerNit(TxtNit.Text) & " WHERE Id_Fact=" & Label9.Text
+            varconex.Open()
+            Dim cmd2 As MySqlCommand = New MySqlCommand(Query, varconex)
+            cmd2.ExecuteNonQuery()
+
+            varconex.Close()
+
+        Catch ex As Exception
+            MsgBox("fallo la actualizacion Id_cliente Factura", vbExclamation, "Atención      SKYNET")
+        End Try
+    End Sub
+
+    ' Click event handler for a button - designed to show how to use the
+    ' SendFileToPrinter and SendBytesToPrinter functions.
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        ' Allow the user to select a file.
+        Dim ofd As New OpenFileDialog()
+        If ofd.ShowDialog(Me) Then
+            ' Allow the user to select a printer.
+            Dim pd As New PrintDialog()
+            pd.PrinterSettings = New PrinterSettings()
+            If (pd.ShowDialog() = DialogResult.OK) Then
+                ' Print the file to the printer.
+                RawPrinterHelper.SendFileToPrinter(pd.PrinterSettings.PrinterName, ofd.FileName)
+            End If
+        End If
+    End Sub ' Button1_Click()
+
+    ' Click event handler for a button - designed to show how to use the
+    ' SendBytesToPrinter function to send a string to the printer.
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'Dim s As String
+        Dim pd As New PrintDialog()
+        Dim Impresora As New RawPrinterHelper
+        pd.PrinterSettings = New PrinterSettings()
+        If (pd.ShowDialog() = DialogResult.OK) Then
+            WindowsApplication1.RawPrinterHelper.SendStringToPrinter(pd.PrinterSettings.PrinterName, Chr(27) & Chr(112) & Chr(0) & Chr(25) & Chr(250))
+        End If
+    End Sub ' Button2_Click()
+
+    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label19_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub cliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+
+    End Sub
+
+
+    Private Sub BtnValidarNit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnValidarNit.Click
+        If TxtNit.Text = "" Then
+            MsgBox("Debe Ingresar el Nit..", MsgBoxStyle.Critical, "Ingresar Nit")
+            Exit Sub
+        End If
+        Dim Query As String = "Select Nit, Nombres, Direccion,Telefono,puntos From Clientes Where Nit LIKE " & Me.TxtNit.Text
+        Dim Adapter As New MySqlDataAdapter(Query, varconex)
+        Dim ds As New DataSet
+        Adapter.Fill(ds)
+        If varconex.State = ConnectionState.Closed Then varconex.Open()
+        Try
+            If ds.Tables(0).Rows.Count = 0 Then
+                MsgBox("Nit no existe por favor ingrese la información", MsgBoxStyle.Critical, AcceptButton)
+                VariablesGoblales.ValidarNit = 0
+                TxtCliente.Text = ""
+                TxtDireccion.Text = ""
+                TxtTelefono.Text = ""
+                TxtCliente.Focus()
+                BtnIngresarNit.Enabled = True
+            Else
+                VariablesGoblales.ValidarNit = 1
+                For Each row As DataRow In ds.Tables(0).Rows
+                    TxtCliente.Text = row("Nombres")
+                    TxtDireccion.Text = row("Direccion")
+                    TxtTelefono.Text = row("Telefono")
+                    TextBox2.Text = row("puntos")
+                Next row
+                If TxtNit.Text = "" Or TxtCliente.Text = "" Or TxtDireccion.Text = "" Or TxtTelefono.Text = "" Then
+                    ToolStripButton4.Enabled = False
+                Else
+                    ToolStripButton4.Enabled = True
+                End If
+                Adapter.Dispose()
+                varconex.Close()
+            End If
+
+        Catch ex As Exception
+            MsgBox("fallo consulta nit", vbExclamation, "Atención      SKYNET")
+        End Try
+
+    End Sub
+
+    Private Sub BtnIngresarNit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnIngresarNit.Click
+        InsertarClientes()
+        BtnIngresarNit.Enabled = False
+        BtnValidarNit.Enabled = False
+        TxtNit.Enabled = False
+        TxtCliente.Enabled = False
+        TxtDireccion.Enabled = False
+        TxtTelefono.Enabled = False
+    End Sub
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Buscarcliente.ShowDialog()
+    End Sub
+
+
+    Private Sub Label22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label22.Click
+
+    End Sub
+
+
+    Private Sub Manejomateriaprima()
+
+        Dim harina, grasa, azucar, sal, levadura, coco_dulce, salvao, ricostilla, harina_maiz, polvo, color_caramelo, promasa, queso_doblecrema, queso_costeño, queso_campesino, huevos, uvas_pasas, yogourt, vino, avena_hojuelas, leche_polvo, chocolate, grageas, azucar_pulverizada, maizena, esencias, premezcla, aceite, manzanas, crema_pastelera, leche, expander, colmaiz, bocadillo, arequipe, jamon, piña, cocoa, mani, breva, coco_natural, grasa_pura, sernido_guayaba, guizo_pollo As Integer
+
+        Dim Inventario As String = "select ventas.cant,resetas.harina,resetas.grasa,resetas.azucar,resetas.sal,resetas.levadura,resetas.coco_dulce,resetas.salvao,resetas.ricostilla,resetas.harina_maiz,resetas.polvo,resetas.color_caramelo,resetas.promasa,resetas.queso_doblecrema,resetas.queso_costeño,resetas.queso_campesino,resetas.huevos,resetas.uvas_pasas,resetas.yogourt,resetas.vino,resetas.avena_hojuelas,resetas.leche_polvo,resetas.chocolate,resetas.grageas,resetas.azucar_pulverizada,resetas.maizena,resetas.esencias,resetas.premezcla,resetas.aceite,resetas.manzanas,resetas.crema_pastelera,resetas.leche,resetas.expander,resetas.colmaiz,resetas.bocadillo,resetas.arequipe,resetas.jamon,resetas.piña,resetas.cocoa,resetas.mani,resetas.breva,resetas.coco_natural,resetas.grasa_pura,resetas.sernido_guayaba,resetas.guizo_pollo from resetas inner join articulos on (resetas.cod_product = articulos.cod_product) inner join ventas on(ventas.id_product=articulos.id_product) inner join facturas on( facturas.id_fact=ventas.id_fact) where facturas.id_fact=" & Label9.Text & ""
+        If varconex.State = ConnectionState.Closed Then varconex.Open()
+        Dim Adapter As New MySqlDataAdapter(Inventario, varconex)
+        Dim ds As New DataSet
+        Adapter.Fill(ds)
+        For Each row As DataRow In ds.Tables(0).Rows
+            harina = row("harina") * row("cant")
+
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & harina & "' WHERE `materia_prima`.`id_mp` = 1"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  harina", vbExclamation, "Atención      SKYNET")
+            End Try
+
+            grasa = row("grasa") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & grasa & "' WHERE `materia_prima`.`id_mp` = 2"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  grasa", vbExclamation, "Atención      SKYNET")
+            End Try
+            azucar = row("azucar") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & azucar & "' WHERE `materia_prima`.`id_mp` = 3"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  azucar", vbExclamation, "Atención      SKYNET")
+            End Try
+            sal = row("sal") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & sal & "' WHERE `materia_prima`.`id_mp` = 4"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  sal", vbExclamation, "Atención      SKYNET")
+            End Try
+            levadura = row("levadura") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & levadura & "' WHERE `materia_prima`.`id_mp` = 5"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  levadura", vbExclamation, "Atención      SKYNET")
+            End Try
+            coco_dulce = row("coco_dulce") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & coco_dulce & "' WHERE `materia_prima`.`id_mp` = 6"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  coco_dulce", vbExclamation, "Atención      SKYNET")
+            End Try
+            salvao = row("salvao") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & salvao & "' WHERE `materia_prima`.`id_mp` = 7"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  salvao", vbExclamation, "Atención      SKYNET")
+            End Try
+            ricostilla = row("ricostilla") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & ricostilla & "' WHERE `materia_prima`.`id_mp` = 8"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  ricostilla", vbExclamation, "Atención      SKYNET")
+            End Try
+            harina_maiz = row("harina_maiz") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & harina_maiz & "' WHERE `materia_prima`.`id_mp` = 9"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  harina de maiz", vbExclamation, "Atención      SKYNET")
+            End Try
+            polvo = row("polvo") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & polvo & "' WHERE `materia_prima`.`id_mp` = 10"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de polvo", vbExclamation, "Atención      SKYNET")
+            End Try
+            color_caramelo = row("color_caramelo") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & color_caramelo & "' WHERE `materia_prima`.`id_mp` = 11"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  color caramelo", vbExclamation, "Atención      SKYNET")
+            End Try
+            promasa = row("promasa") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & promasa & "' WHERE `materia_prima`.`id_mp` = 12"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  promasa", vbExclamation, "Atención      SKYNET")
+            End Try
+            queso_doblecrema = row("queso_doblecrema") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & queso_doblecrema & "' WHERE `materia_prima`.`id_mp` = 13"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  queso doble crema", vbExclamation, "Atención      SKYNET")
+            End Try
+            queso_costeño = row("queso_costeño") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & queso_costeño & "' WHERE `materia_prima`.`id_mp` = 14"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  queso costeño", vbExclamation, "Atención      SKYNET")
+            End Try
+            queso_campesino = row("queso_campesino") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & queso_campesino & "' WHERE `materia_prima`.`id_mp` = 15"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  queso campesino", vbExclamation, "Atención      SKYNET")
+            End Try
+            huevos = row("huevos") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & huevos & "' WHERE `materia_prima`.`id_mp` = 16"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  huevos", vbExclamation, "Atención      SKYNET")
+            End Try
+            uvas_pasas = row("uvas_pasas") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & uvas_pasas & "' WHERE `materia_prima`.`id_mp` = 17"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  uvas pasas", vbExclamation, "Atención      SKYNET")
+            End Try
+            yogourt = row("yogourt") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & yogourt & "' WHERE `materia_prima`.`id_mp` = 18"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  yogourt", vbExclamation, "Atención      SKYNET")
+            End Try
+            vino = row("vino") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & vino & "' WHERE `materia_prima`.`id_mp` = 19"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  vino", vbExclamation, "Atención      SKYNET")
+            End Try
+            avena_hojuelas = row("avena_hojuelas") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & avena_hojuelas & "' WHERE `materia_prima`.`id_mp` = 20"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  avena en hojuelas", vbExclamation, "Atención      SKYNET")
+            End Try
+            leche_polvo = row("leche_polvo") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & leche_polvo & "' WHERE `materia_prima`.`id_mp` = 21"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  leche en polvo", vbExclamation, "Atención      SKYNET")
+            End Try
+            chocolate = row("chocolate") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & chocolate & "' WHERE `materia_prima`.`id_mp` = 22"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  chocolate", vbExclamation, "Atención      SKYNET")
+            End Try
+            grageas = row("grageas") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & grageas & "' WHERE `materia_prima`.`id_mp` = 23"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  grageas", vbExclamation, "Atención      SKYNET")
+            End Try
+            azucar_pulverizada = row("azucar_pulverizada") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & azucar_pulverizada & "' WHERE `materia_prima`.`id_mp` = 24"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  azucar pulverizada", vbExclamation, "Atención      SKYNET")
+            End Try
+            maizena = row("maizena") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & maizena & "' WHERE `materia_prima`.`id_mp` = 25"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  maizena", vbExclamation, "Atención      SKYNET")
+            End Try
+            esencias = row("esencias") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & esencias & "' WHERE `materia_prima`.`id_mp` = 26"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  esencias", vbExclamation, "Atención      SKYNET")
+            End Try
+            premezcla = row("premezcla") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & premezcla & "' WHERE `materia_prima`.`id_mp` = 27"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  premezcla", vbExclamation, "Atención      SKYNET")
+            End Try
+            aceite = row("aceite") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & aceite & "' WHERE `materia_prima`.`id_mp` = 28"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  aceite", vbExclamation, "Atención      SKYNET")
+            End Try
+            manzanas = row("manzanas") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & manzanas & "' WHERE `materia_prima`.`id_mp` = 29"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  manzanas", vbExclamation, "Atención      SKYNET")
+            End Try
+            crema_pastelera = row("crema_pastelera") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & crema_pastelera & "' WHERE `materia_prima`.`id_mp` = 30"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  crema pastelera", vbExclamation, "Atención      SKYNET")
+            End Try
+            leche = row("leche") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & leche & "' WHERE `materia_prima`.`id_mp` = 31"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  leche", vbExclamation, "Atención      SKYNET")
+            End Try
+            expander = row("expander") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & expander & "' WHERE `materia_prima`.`id_mp` = 32"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  expander", vbExclamation, "Atención      SKYNET")
+            End Try
+            colmaiz = row("colmaiz") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & colmaiz & "' WHERE `materia_prima`.`id_mp` = 33"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  colmaiz", vbExclamation, "Atención      SKYNET")
+            End Try
+            bocadillo = row("bocadillo") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & bocadillo & "' WHERE `materia_prima`.`id_mp` = 34"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  bocadillo", vbExclamation, "Atención      SKYNET")
+            End Try
+            arequipe = row("arequipe") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & arequipe & "' WHERE `materia_prima`.`id_mp` = 35"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  arequipe", vbExclamation, "Atención      SKYNET")
+            End Try
+            jamon = row("jamon") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & jamon & "' WHERE `materia_prima`.`id_mp` = 36"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  jamon", vbExclamation, "Atención      SKYNET")
+            End Try
+            piña = row("piña") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & piña & "' WHERE `materia_prima`.`id_mp` = 37"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de piña", vbExclamation, "Atención      SKYNET")
+            End Try
+            cocoa = row("cocoa") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & cocoa & "' WHERE `materia_prima`.`id_mp` = 38"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  cocoa", vbExclamation, "Atención      SKYNET")
+            End Try
+            mani = row("mani") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & mani & "' WHERE `materia_prima`.`id_mp` = 39"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  mani", vbExclamation, "Atención      SKYNET")
+            End Try
+            breva = row("breva") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & breva & "' WHERE `materia_prima`.`id_mp` = 40"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  breva", vbExclamation, "Atención      SKYNET")
+            End Try
+            coco_natural = row("coco_natural") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & coco_natural & "' WHERE `materia_prima`.`id_mp` = 41"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  cono natural", vbExclamation, "Atención      SKYNET")
+            End Try
+            grasa_pura = row("grasa_pura") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & grasa_pura & "' WHERE `materia_prima`.`id_mp` = 42"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de grasa pura", vbExclamation, "Atención      SKYNET")
+            End Try
+            sernido_guayaba = row("sernido_guayaba") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & sernido_guayaba & "' WHERE `materia_prima`.`id_mp` = 43"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  sernido de guayaba", vbExclamation, "Atención      SKYNET")
+            End Try
+            guizo_pollo = row("guizo_pollo") * row("cant")
+            Try
+                If varconex1.State = ConnectionState.Open Then varconex1.Close()
+                Dim Query As String = "Update `materia_prima` Set `cantidad` = cantidad-'" & guizo_pollo & "' WHERE `materia_prima`.`id_mp` = 44"
+                varconex1.Open()
+                Dim cmd21 As MySqlCommand = New MySqlCommand(Query, varconex1)
+                cmd21.ExecuteNonQuery()
+                varconex1.Close()
+            Catch ex As Exception
+                MsgBox("fallo la actualizacion de  guizo de pollo", vbExclamation, "Atención      SKYNET")
+            End Try
+
+
+
+            'UpdSQL = UpdSQL & "UPDATE Articulos SET inventario=" & Diferencia & " WHERE Id_Product=" & Idprod & ";"
+            'If varconex.State = ConnectionState.Closed Then varconex.Open()
+            'Dim ActInventario As New MySqlDataAdapter(UpdSQL, varconex)
+            'Dim dts As New DataSet
+            ' ActInventario.Fill(dts)
+        Next row
+        varconex.Close()
+        'Actualiza el campo cantidad en la tabla articulos
+
+    End Sub
+
+    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
+        If CheckBox1.Checked = True Then
+            MsgBox("Esta factura es a crédito, si desea abonar algo a esta factura  debe hacerlo por ingreso abonos ", vbExclamation, "Atención      SKYNET")
+
+        End If
+
+        If TextBox1.Text = "" Then
+            MsgBox("Ingrese cantidad de efectivo ", vbExclamation, "Atención      SKYNET")
+
+        Else
+            If Label2.Text = 0 Then
+                MsgBox("no hay nada para facturar")
+            Else
+                'cajon()
+                Call updatefact()
+
+
+                Call updateventas()
+                ' Call MostrarFactura()
+                Call UpdFacturaCliente()
+                'Call calculo_puntos()
+                'fgomez parametrizacion UNIR  PUNTOS Y MANEJO DE RECETAS
+                'Call Manejomateriaprima()
+                'Call ingreso_puntos()
+
+                If TxtNit.Text = "" Then
+                    MsgBox("Debe Ingresar el Nit", MsgBoxStyle.Critical, "Validar Nit")
+                    TxtNit.Focus()
+                    Exit Sub
+                ElseIf TxtCliente.Text = "" Then
+                    MsgBox("Debe Ingresar el Cliente", MsgBoxStyle.Critical, "Validar Nit")
+                    TxtCliente.Focus()
+                    Exit Sub
+                ElseIf TxtDireccion.Text = "" Then
+                    MsgBox("Debe Ingresar la dirección", MsgBoxStyle.Critical, "Validar Nit")
+                    TxtDireccion.Focus()
+                    Exit Sub
+                ElseIf TxtTelefono.Text = "" Then
+                    MsgBox("Debe Ingresar el Telefono", MsgBoxStyle.Critical, "Validar Nit")
+                    TxtTelefono.Focus()
+                    Exit Sub
+                End If
+                Call MostrarFactura()
+                Call UpdFacturaCliente()
+                ListBox1.Items.Add(("TOTAL VENTA: $ ") & (Me.Label2.Text))
+                ListBox1.Items.Add(("EFECTIVO: $") & (Me.TextBox1.Text))
+                ListBox1.Items.Add(("CAMBIO: $") & (Me.Label7.Text))
+                CAMBIO.Label5.Text = Label7.Text
+                CAMBIO.Label3.Text = TextBox1.Text
+                CAMBIO.Label2.Text = Label2.Text
+                ListBox1.Items.Add("_________________________________")
+                Dim cmdpos As New MySqlCommand("SELECT pos.nomb_caja FROM pos where pos.id_caja= " & Me.Label4.Text & "", conexion)
+                Dim lecturacaja As MySqlDataReader
+                If Not conexion Is Nothing Then conexion.Close()
+                conexion.Open()
+                lecturacaja = cmdpos.ExecuteReader
+
+                If lecturacaja.Read() Then
+
+                    ListBox1.Items.Add(("") & lecturacaja("nomb_caja"))
+
+                End If
+                conexion.Close()
+                ListBox1.Items.Add(("CAJERO: ") & (Me.Label14.Text))
+                Dim cmdempresa2 As New MySqlCommand("SELECT empresa.empresa,empresa.nit,empresa.direccion,empresa.telefono,empresa.ciudad,empresa.observacion FROM empresa ", conexion)
+                Dim lecturaempresa2 As MySqlDataReader
+
+                If Not conexion Is Nothing Then conexion.Close()
+                conexion.Open()
+                lecturaempresa2 = cmdempresa2.ExecuteReader
+
+                If lecturaempresa2.Read() Then
+                    ListBox1.Items.Add(("") & lecturaempresa2("direccion"))
+                    ListBox1.Items.Add(("TELEFONO:") & lecturaempresa2("telefono"))
+                    ListBox1.Items.Add(("") & lecturaempresa2("ciudad"))
+                    ListBox1.Items.Add(("") & lecturaempresa2("observacion") & (""))
+                    ListBox1.Items.Add("")
+                    '  ListBox1.Items.Add("  *********************************")
+                    'ListBox1.Items.Add("     DOMICILIO GRATIS: " & lecturaempresa2("telefono"))
+                    ' ListBox1.Items.Add("   *********************************")
+
+                End If
+                Dim valor As Integer
+                valor = MsgBox("  Desea Imprimir la Factura?", vbYesNo, "Factura")
+                If valor = 6 Then
+                    PrintDocument1.Print()
+
+                Else
+
+                    cajon()
+                End If
+                Call ManejoInventarios(VariablesGoblales.NoFact)
+                VENTAS.Label1.Text = Label14.Text
+                VENTAS.Label16.Text = Label15.Text
+                VENTAS.Label9.Text = Label3.Text
+                VENTAS.Label12.Text = Label4.Text
+                VENTAS.TextBox1.Enabled = False
+                VENTAS.BtnIngresar.Enabled = False
+                VENTAS.Button3.Enabled = False
+                VENTAS.DataGridView1.DataSource = Nothing
+                VENTAS.total_venta.Text = Nothing
+                VENTAS.Label7.Text = Nothing
+                VENTAS.Label8.Text = Nothing
+                VENTAS.Label20.Text = Nothing
+
+                VENTAS.Label30.Text = 0
+                Me.Close()
+                'VENTAS.Show()
+                CAMBIO.Show()
+
+                conexion.Close()
+
+            End If
+        End If
+    End Sub
+
+
+    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub TextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox1.KeyPress
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+
+    End Sub
+
+    Private Sub Label26_Click(sender As Object, e As EventArgs) Handles Label26.Click
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+    End Sub
+
+    Private Sub TxtNit_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtNit.TextChanged
+
+    End Sub
+
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+
+    End Sub
+End Class
