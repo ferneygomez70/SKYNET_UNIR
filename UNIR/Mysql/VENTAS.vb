@@ -514,7 +514,7 @@ Public Class VENTAS
 
 
         If ((promocion = 0) And (medida = "GR") And (Label5.Text >= cant)) Then
-            Me.Label8.Text = valor_prom |
+            Me.Label8.Text = valor_prom
             Me.Label28.Text = valor_prom
             Me.Label29.Visible = True
             Me.Label29.Text = "promocion"
