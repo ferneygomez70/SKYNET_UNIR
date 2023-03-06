@@ -3056,3 +3056,55 @@ C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\
 C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.xml
 C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.pdb
 C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Parametrizar.resources
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe.config
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe.manifest
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.application
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.pdb
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.xml
+C:\skynet int\UNIR\Mysql\bin\Debug\MoneyBox.dll
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\Mysql.vbproj.AssemblyReference.cache
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Buscarcliente.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Buscarcliente2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.BuscarProducto2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CAMBIO2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CANTIDADES2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.COBRAR2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Crear_articulos.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CREDITOS.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.DESCUENTO.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CAMBIO.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.facturas.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.GASTOS.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.ingreso_mp.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.INVENTARIO1.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.LOGIN_BORRADO2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Parametrizar.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.REPORTE_MATERIA_PRIMA.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.SALDOS2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.VENTAS.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Buscar.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CANTIDADES.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.SALDOS.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.IMPRIMIR_AZ.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CIERRE_CAJA_AZ.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.LOGIN_AZ.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.INICIO.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.efectivo.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.BuscarProducto.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.LOGIN_BORRADO.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.LOGIN_CIERRE.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.COBRAR.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.CIERRE_CAJA.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Reimprimir.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.VENTAS2.resources
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\Mysql.vbproj.GenerateResource.cache
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\Mysql.vbproj.CoreCompileInputs.cache
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.TrustInfo.xml
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.exe.manifest
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.application
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\Mysql.vbproj.CopyComplete
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.exe
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.xml
+C:\skynet int\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.pdb

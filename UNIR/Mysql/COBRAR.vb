@@ -464,7 +464,7 @@ Public Class COBRAR
 
 
             Catch ex As Exception
-                MsgBox("fallo de actualización", vbExclamation, "Atención      SKYNET")
+                MsgBox("fallo de actualización estado factura", vbExclamation, "Atención      SKYNET")
 
 
             End Try

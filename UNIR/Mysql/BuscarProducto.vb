@@ -65,23 +65,15 @@ Public Class BuscarProducto
         valor = Me.DataGridView1.Rows(e.RowIndex).Cells(0).Value
         nombre = Me.DataGridView1.Rows(e.RowIndex).Cells(2).Value
         precio = Me.DataGridView1.Rows(e.RowIndex).Cells(3).Value
+        precioPorMayor = Me.DataGridView1.Rows(e.RowIndex).Cells(4).Value
+        medida = Me.DataGridView1.Rows(e.RowIndex).Cells(5).Value
+        promocion = Me.DataGridView1.Rows(e.RowIndex).Cells(6).Value
+        cant = Me.DataGridView1.Rows(e.RowIndex).Cells(7).Value
+        valor_prom = Me.DataGridView1.Rows(e.RowIndex).Cells(8).Value
+        iva = Me.DataGridView1.Rows(e.RowIndex).Cells(9).Value
+        VENTAS.LblPrecioPorMayor.Text = precioPorMayor
         If VENTAS.CbxMayorista.Checked = True Then
-            precioPorMayor = Me.DataGridView1.Rows(e.RowIndex).Cells(4).Value
-            medida = Me.DataGridView1.Rows(e.RowIndex).Cells(5).Value
-            promocion = Me.DataGridView1.Rows(e.RowIndex).Cells(6).Value
-            cant = Me.DataGridView1.Rows(e.RowIndex).Cells(7).Value
-            valor_prom = Me.DataGridView1.Rows(e.RowIndex).Cells(8).Value
-            iva = Me.DataGridView1.Rows(e.RowIndex).Cells(9).Value
-
-            VENTAS.LblPrecioPorMayor.Text = precioPorMayor
-        Else
-
-            medida = Me.DataGridView1.Rows(e.RowIndex).Cells(4).Value
-            promocion = Me.DataGridView1.Rows(e.RowIndex).Cells(5).Value
-            cant = Me.DataGridView1.Rows(e.RowIndex).Cells(6).Value
-            valor_prom = Me.DataGridView1.Rows(e.RowIndex).Cells(7).Value
-            iva = Me.DataGridView1.Rows(e.RowIndex).Cells(8).Value
-
+            precio = precioPorMayor
         End If
 
         Label1.Text = valor
