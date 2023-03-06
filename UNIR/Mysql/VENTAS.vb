@@ -396,6 +396,13 @@ Public Class VENTAS
             CbxMayorista.Visible = False
 
         End If
+
+        If VariablesGoblales.Pagos = True Then
+            Button2.Visible = True
+        Else
+            Button2.Visible = False
+
+        End If
         Call empresa()
 
         Me.TextBox1.Focus()
