@@ -12,25 +12,26 @@ Public Class BuscarProducto
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
         DataGridView1.Enabled = True
         Dim strSQLusuario As String
-        If VariablesGoblales.PrecioPorMayor = True Then
-            If VariablesGoblales.Bascula = True Then 'control para mostrar solo productos  sin y con bascula
-                strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta, articulos.precioPorMayor,  medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
+        'If VariablesGoblales.PrecioPorMayor = True Then
+        '    If VariablesGoblales.Bascula = True Then 'control para mostrar solo productos  sin y con bascula
+        '        strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta, articulos.precioPorMayor,  medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
 
-            Else
-                strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta, articulos.precioPorMayor, medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida)  and articulos.id_medida= 2 WHERE   articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
+        '    Else
+        '        strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta, articulos.precioPorMayor, medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida)  and articulos.id_medida= 2 WHERE   articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
 
-            End If
-        Else
-            If VariablesGoblales.Bascula = True Then 'control para mostrar solo productos  sin y con bascula
-                strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta,  medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
+        '    End If
+        'Else
+        '    If VariablesGoblales.Bascula = True Then 'control para mostrar solo productos  sin y con bascula
+        '        strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta,                            medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
 
-            Else
-                strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta,  medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida)  and articulos.id_medida= 2 WHERE   articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
+        '    Else
+        '        strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta,  medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida)  and articulos.id_medida= 2 WHERE   articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
 
-            End If
+        '    End If
 
-        End If
+        'End If
 
+        strSQLusuario = "select articulos.id_product,articulos.cod_product,articulos.nomb_product,articulos.precio_venta, articulos.precioPorMayor,  medida.medida,articulos.promocion, articulos.cant_prom, articulos.valor_prom,articulos.iva from articulos INNER JOIN medida ON (articulos.id_medida = medida.id_medida) WHERE articulos.cod_product " & "like " & "'" & TextBox1.Text & "%" & "' OR articulos.nomb_product LIKE  '%" & TextBox1.Text & "%'"
 
         cmdusuario.CommandText = strSQLusuario
         cmdusuario.CommandType = CommandType.Text
@@ -54,7 +55,7 @@ Public Class BuscarProducto
     Private Sub DataGridView1_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         Dim valor As Integer
         Dim precio As Integer
-        Dim precioPorMayor As Integer
+        Dim precioalporMayor As Integer
         Dim nombre As String
         Dim medida As String
         Dim cant As Double
@@ -65,7 +66,10 @@ Public Class BuscarProducto
         valor = Me.DataGridView1.Rows(e.RowIndex).Cells(0).Value
         nombre = Me.DataGridView1.Rows(e.RowIndex).Cells(2).Value
         precio = Me.DataGridView1.Rows(e.RowIndex).Cells(3).Value
-        precioPorMayor = Me.DataGridView1.Rows(e.RowIndex).Cells(4).Value
+        If VariablesGoblales.PrecioPorMayor = True Then
+            precioalporMayor = Me.DataGridView1.Rows(e.RowIndex).Cells(4).Value
+        End If
+
         medida = Me.DataGridView1.Rows(e.RowIndex).Cells(5).Value
         promocion = Me.DataGridView1.Rows(e.RowIndex).Cells(6).Value
         cant = Me.DataGridView1.Rows(e.RowIndex).Cells(7).Value
@@ -73,7 +77,7 @@ Public Class BuscarProducto
         iva = Me.DataGridView1.Rows(e.RowIndex).Cells(9).Value
         VENTAS.LblPrecioPorMayor.Text = precioPorMayor
         If VENTAS.CbxMayorista.Checked = True Then
-            precio = precioPorMayor
+            precio = precioalporMayor
         End If
 
         Label1.Text = valor
@@ -110,6 +114,7 @@ Public Class BuscarProducto
         If e.KeyCode = Keys.Enter Then
             Dim valor As Integer
             Dim precio As Integer
+            Dim precioalporMayor As Integer
             Dim nombre As String
             Dim medida As String
             Dim cant As Double
@@ -124,8 +129,13 @@ Public Class BuscarProducto
             cant = Me.DataGridView1.CurrentRow.Cells(6).Value
             valor_prom = Me.DataGridView1.CurrentRow.Cells(7).Value
             iva = Me.DataGridView1.CurrentRow.Cells(8).Value
+            precioalporMayor = Me.DataGridView1.CurrentRow.Cells(9).Value
             Label1.Text = valor
             VENTAS.Label6.Text = valor
+            If VENTAS.CbxMayorista.Checked = True Then
+                precio = precioalporMayor
+
+            End If
             VENTAS.Label8.Text = precio
             VENTAS.Label7.Text = nombre
             VENTAS.Label13.Text = medida

@@ -31,6 +31,7 @@ Public Class LOGIN_BORRADO
     End Sub
 
     Private Sub Form5_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         If VariablesGoblales.LoginBorrado = False Then
             GroupBox1.Visible = False
 

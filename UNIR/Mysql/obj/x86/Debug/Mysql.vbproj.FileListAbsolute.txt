@@ -3056,10 +3056,10 @@ C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\
 C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.xml
 C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\UNIR\Mysql\obj\x86\Debug\SKYNET 5.0.pdb
 C:\Users\Ferney Gomez R\Documents\AAAAAAAAA semestre\2 CUATRIMESTRE\TFM\fuentes\UNIR\Mysql\obj\x86\Debug\WindowsApplication1.Parametrizar.resources
+C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe
 C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe.config
 C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe.manifest
 C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.application
-C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.exe
 C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.pdb
 C:\skynet int\UNIR\Mysql\bin\Debug\SKYNET 5.0.xml
 C:\skynet int\UNIR\Mysql\bin\Debug\MoneyBox.dll

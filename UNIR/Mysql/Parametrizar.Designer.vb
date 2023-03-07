@@ -448,6 +448,7 @@ Partial Class Parametrizar
         Me.Controls.Add(Me.Cbox_LoginBorrado)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Parametrizar"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Parametrizar"
         Me.ResumeLayout(False)
         Me.PerformLayout()

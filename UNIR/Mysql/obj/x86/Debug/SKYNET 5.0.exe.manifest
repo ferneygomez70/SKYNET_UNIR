@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SKYNET 5.0.exe" size="28807680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SKYNET 5.0.exe" size="28805632">
       <assemblyIdentity name="SKYNET 5.0" version="4.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>4uWNAzWM1DtCG+tC3Nq1FIqmeG4=</dsig:DigestValue>
+        <dsig:DigestValue>O83swgIerC4RIfTIExdhWmIOiak=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
